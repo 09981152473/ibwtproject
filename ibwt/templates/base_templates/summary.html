@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-green-sharp"><span class="counter" id="highest-bid-price">0</span><small class="font-green-sharp"> {{ session.currencies[1] }}</small></h3>
+                    <small>{% trans %}Highest bid price{% endtrans %}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-red-haze"><span class="counter" id="lowest-bid-price">0</span><small class="font-red-haze"> {{ session.currencies[1] }}</small></h3>
+                    <small>{% trans %}Lowest bid price{% endtrans %}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-blue-sharp counter"><span class="counter" id="currency-volume">0</span> <small class="font-blue-sharp">{{ session.currencies[0] }}</small></h3>
+                    <small>{{ g.site_currencies[session.currencies[0]][1] }} {% trans %}Volume{% endtrans %}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-purple-soft counter"><span class="counter" id="currency2-volume">0</span> <small class="font-purple-soft">{{ session.currencies[1] }}</small></h3>
+                    <small>{{ g.site_currencies[session.currencies[1]][1] }} {% trans %}Volume{% endtrans %}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<!-- BEGIN LANGUAGE BAR -->
+<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<li class="dropdown dropdown-language">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <img alt="" src="{{ url_for('static', filename='assets/global/img/flags/%s.png' % session['language']) }}">
+        <span class="langname">
+        {{ g.languages[session['language']] }} </span>
+        <i class="fa fa-angle-down" ></i>
+    </a>
+    <ul class="dropdown-menu">
+        {% for lang in g.languages %}
+            <li>
+                <a href="{{ url_for('lang', language=lang) }}">
+                <img alt="" src="{{ url_for('static', filename='assets/global/img/flags/%s.png' % lang.lower()) }}"> {{ g.languages[lang] }} </a>
+            </li>
+        {% endfor %}
+    </ul>
+</li>
+<!-- END LANGUAGE BAR -->

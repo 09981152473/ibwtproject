@@ -1,0 +1,15 @@
+<div class="login-options">
+    <h4>{% trans %}Or login with{% endtrans %}</h4>
+    <ul class="social-icons">
+        <li>
+            <a class="social-icon-color facebook"
+               data-original-title="facebook"
+               href="{{ url_for('facebook_login') }}"></a>
+        </li>
+        <li>
+            <a class="social-icon-color googleplus"
+               data-original-title="Goole Plus"
+               href="{{ url_for('google_login') }}"></a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+    <li class="{% if request.url_rule.endpoint in ('user_transactions_page',) %}active{% endif %}">
+        <a href="{{ url_for('user_transactions_page') }}" >{% trans %}ALL{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint in ('user_transactions_accredit_page', ) %}active{% endif %}">
+        <a href="{{ url_for('user_transactions_accredit_page') }}" >{% trans %}ACCREDIT{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint == 'user_transactions_charge_page' %}active{% endif %}">
+        <a href="{{ url_for('user_transactions_charge_page') }}">{% trans %}CHARGE{% endtrans %}</a>
+    </li>
+</ul>

@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+    <li class="{% if request.url_rule.endpoint == 'user_account_page' %}active{% endif %}">
+        <a href="{{ url_for('user_account_page') }}" >{% trans %}Personal Info{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint == 'user.change_password' %}active{% endif %}">
+        <a href="{{ url_for('user.change_password') }}">{% trans %}Change Password{% endtrans %}</a>
+    </li>
+</ul>

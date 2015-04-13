@@ -1,0 +1,150 @@
+<!-- BEGIN PROFILE SIDEBAR -->
+<div class="profile-sidebar" style="width: 250px;">
+    <!-- PORTLET MAIN -->
+    <div class="portlet light profile-sidebar-portlet">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+            <img src="{{ url_for('static', filename='assets/global/img/anonymous-user.png') }}" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+                {{ current_user.first_name }} {{ current_user.last_name }}
+            </div>
+            <div class="profile-usertitle-job" style="color: #ccc;text-transform: lowercase;">
+                {{ current_user.email }}
+            </div>                            </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+             <a href="{{ url_for('home_page') }}" class="btn btn-circle green-haze btn-sm">{% trans %}Trade{% endtrans %}</button>
+            <a href="{{ url_for('user.logout') }}" class="btn btn-circle btn-danger btn-sm">{% trans %}Logout{% endtrans %}</a>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+            <ul class="nav">
+                <li class="{% if request.url_rule.endpoint == 'user_profile_page' %}active{% endif %}">
+                    <a href="{{ url_for('user_profile_page') }}">
+                        <i class="icon-home"></i>
+                        {% trans %}Overview{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_orders_page', 'user_buy_orders_page', 'user_sell_orders_page') %}active{% endif %}">
+                    <a href="{{ url_for('user_orders_page') }}">
+                        <i class="icon-lock-open"></i>
+                        {% trans %}Open orders{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_orders_closed_page', 'user_buy_orders_closed_page', 'user_sell_orders_closed_page') %}active{% endif %}">
+                    <a href="{{ url_for('user_orders_closed_page') }}">
+                        <i class="icon-lock"></i>
+                        {% trans %}Closed orders{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_transactions_page', 'user_transactions_accredit_page', 'user_transactions_charge_page') %}active{% endif %}">
+                    <a href="{{ url_for('user_transactions_page') }}">
+                        <i class="icon-list"></i>
+                        {% trans %}Transactions{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_funds_page', 'funds_crypto_load', 'user_funds_withdrawal_page') %}active{% endif %}">
+                    <a href="{{ url_for('user_funds_page') }}">
+                        <i class="icon-handbag"></i>
+                        {% trans %}Funds{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_deposits_withdrawals_page', 'user_withdrawals_page', 'user_deposits_page') %}active{% endif %}">
+                    <a href="{{ url_for('user_deposits_withdrawals_page') }}">
+                        <i class="icon-book-open"></i>
+                        {% trans %}Deposit & Withdrawals{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_security_page',) %}active{% endif %}">
+                    <a href="{{ url_for('user_security_page') }}">
+                        <i class="icon-shield"></i>
+                        {% trans %}Security{% endtrans %} </a>
+                </li>
+                <li class="{% if request.url_rule.endpoint in ('user_account_page', 'user.change_password') %}active{% endif %}">
+                    <a href="{{ url_for('user_account_page') }}">
+                        <i class="icon-settings"></i>
+                        {% trans %}Account{% endtrans %} </a>
+                </li>
+                <li class="last">
+                    <a href="{{ url_for('user.logout') }}">
+                        <i class="icon-logout"></i>
+                        {% trans %}Logout{% endtrans %} </a>
+                </li>
+            </ul>
+        </div>
+        <!-- END MENU -->
+    </div>
+    <!-- END PORTLET MAIN -->
+    <!-- PORTLET MAIN -->
+    <div class="portlet light">
+        <!-- STAT -->
+        <div class="row list-separated profile-stat">
+            <div class="col-md-12 col-sm-4 col-xs-12">
+                <h4 class="profile-desc-title">{% trans %}General stats{% endtrans %}</h4>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="uppercase profile-stat-title">
+                    <div id="user_total_orders">
+                        {% include 'base_templates/loading/loading.html' %}
+                    </div>
+                </div>
+                <div class="uppercase profile-stat-text">
+                    {% trans %}Orders{% endtrans %}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="uppercase profile-stat-title">
+                    <div id="user_open_orders">
+                        {% include 'base_templates/loading/loading.html' %}
+                    </div>
+                </div>
+                <div class="uppercase profile-stat-text">
+                    {% trans %}open{% endtrans %}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="uppercase profile-stat-title">
+                    <div id="user_closed_orders">
+                        {% include 'base_templates/loading/loading.html' %}
+                    </div>
+                </div>
+                <div class="uppercase profile-stat-text">
+                    {% trans %}Closed{% endtrans %}
+                </div>
+            </div>
+        </div>
+        <div class="row list-separated profile-stat">
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="uppercase profile-stat-title">
+                    <div id="user_total_buy_orders">
+                        {% include 'base_templates/loading/loading.html' %}
+                    </div>
+                </div>
+                <div class="uppercase profile-stat-text">
+                    {% trans %}Open Buy{% endtrans %}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="uppercase profile-stat-title">
+                    <div id="user_total_sell_orders">
+                        {% include 'base_templates/loading/loading.html' %}
+                    </div>
+                </div>
+                <div class="uppercase profile-stat-text">
+                    {% trans %}Open Sell{% endtrans %}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <div class="uppercase profile-stat-title">
+                    <div id="user_total_sell_orders2">
+                    </div>
+                </div>
+                <div class="uppercase profile-stat-text">
+                </div>
+            </div>
+        </div>
+        <!-- END STAT -->
+    </div>
+    <!-- END PORTLET MAIN -->
+</div>
+<!-- END BEGIN PROFILE SIDEBAR -->

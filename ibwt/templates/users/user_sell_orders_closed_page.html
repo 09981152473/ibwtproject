@@ -1,0 +1,97 @@
+{% extends "base_templates/page_base.html" %}  {# base_templates/page_base.html extends base_templates/base.html #}
+{% block title %}{{ current_user.first_name }} {{ current_user.last_name }}{% endblock %}
+{% from "flask_user/_macros.html" import render_field, render_checkbox_field, render_submit_field %}
+
+{% block main %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN PAGE CONTENT-->
+            {% include 'base_templates/base_flashes.html' %}
+          <div class="row">
+                <div class="col-md-12">
+                    {% include 'users/user_sidebar.html' %}
+                    <!-- BEGIN PROFILE CONTENT -->
+                    <div class="profile-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN PORTLET -->
+                                <div class="portlet light ">
+                                    <div class="portlet-title tabbable-line">
+                                        <div class="caption caption-md">
+                                            <i class="icon-globe theme-font hide"></i>
+                                            <span class="caption-subject font-blue-madison bold uppercase">{% trans %}Closed Sell orders{% endtrans %}</span>
+                                        </div>
+                                        {% include 'users/user_orders_closed_nav_tabs.html' %}
+                                    </div>
+                                    <div class="portlet-body">
+                                            <!-- PERSONAL INFO TAB -->
+                                            {% include 'base_templates/currencies_filter_user.html' %}
+                                            <div id="user_all_sell_closed_orders">
+                                            {% include 'base_templates/loading/loading.html' %}
+                                            </div>
+                                    </div>
+                                    <div class="portlet-footer">
+
+                                    </div>
+                                </div>
+                                <!-- END PORTLET -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PROFILE CONTENT -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    <link href="{{  url_for('static', filename='assets/admin/pages/css/profile.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block post_js %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Sijax.request('get_user_total_orders');
+            Sijax.request('get_user_closed_orders', [null, null, 'sell']);
+
+
+            $('#filter-btn').click(function(){
+                var currency = $('#select-currency').val();
+                var currency2 = $('#select-currency2').val();
+                if ($.trim(currency) != '' && $.trim(currency2) != '') {
+                    var ref = '#user_all_sell_closed_orders';
+                    $(ref).html('<img src="{{ url_for('static', filename='assets/global/img/loading_general.gif') }}">');
+                    Sijax.request('get_user_closed_orders', [currency, currency2, 'sell']);
+                }
+            })
+
+
+            $('#no-filter-btn').click(function(){
+                var ref = '#user_all_sell_closed_orders';
+                $(ref).html('<img src="{{ url_for('static', filename='assets/global/img/loading_general.gif') }}">');
+                Sijax.request('get_user_closed_orders', [null, null, 'sell']);
+            })
+
+
+
+        })
+        function render_user_total_orders(data){
+            $('#user_total_orders').html(data.total_orders)
+            $('#user_open_orders').html(data.total_open_orders)
+            $('#user_closed_orders').html(data.total_closed_orders)
+            $('#user_total_sell_orders').html(data.total_sell_orders)
+            $('#user_total_buy_orders').html(data.total_buy_orders)
+            console.log(data)
+        }
+
+        function render_user_open_orders(data) {
+            var ref = '#user_all_sell_closed_orders';
+            $(ref).html(data.html);
+            data_tabelize(ref);
+        }
+
+    </script>
+{% endblock %}

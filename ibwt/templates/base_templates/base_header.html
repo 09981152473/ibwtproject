@@ -1,0 +1,111 @@
+<div class="page-header navbar navbar-fixed-top">
+	<!-- BEGIN HEADER INNER -->
+	<div class="page-header-inner">
+		<!-- BEGIN LOGO -->
+		<div class="page-logo">
+			<a href="{{ url_for('home_page') }}" style="text-decoration: none">
+			    <h2>in฿itWeTrust</h2>
+			</a>
+			<div class="menu-toggler sidebar-toggler hide">
+				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+			</div>
+		</div>
+		<!-- END LOGO -->
+		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+		</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
+
+		<!-- BEGIN PAGE TOP -->
+		<div class="page-top">
+			<!-- BEGIN HEADER SEARCH BOX -->
+			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+			<!-- END HEADER SEARCH BOX -->
+			<!-- BEGIN TOP NAVIGATION MENU -->
+			<div class="top-menu">
+				<ul class="nav navbar-nav pull-right">
+					<li class="separator hide">
+					</li>
+					<!-- BEGIN NOTIFICATION DROPDOWN -->
+					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+					<!-- END NOTIFICATION DROPDOWN -->
+					<li class="separator hide">
+					</li>
+
+                    {% include 'select_language.html' %}
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    {% if g.current_user.is_authenticated() %}
+					<!-- BEGIN INBOX DROPDOWN -->
+					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+					<!-- END INBOX DROPDOWN -->
+					<li class="separator hide">
+					</li>
+					<!-- BEGIN TODO DROPDOWN -->
+					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+					<!-- END TODO DROPDOWN -->
+					    <li class="dropdown dropdown-user dropdown-dark">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+						<span class="username username-hide-on-mobile">
+						{{ g.current_user.first_name }} </span>
+						<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+						<img alt="" class="img-circle" src="{{ url_for('static', filename='assets/global/img/anonymous-user.png') }}">
+						</a>
+						<ul class="dropdown-menu dropdown-menu-default">
+                            {% if (current_user.otp_secret and session.get('2FA', False)) or not current_user.otp_secret %}
+							<li>
+								<a href="{{ url_for('user_profile_page') }}">
+								<i class="icon-user"></i>{% trans %}My Profile{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{ url_for('user_orders_page') }}">
+								<i class="icon-lock-open"></i>{% trans %}My Open Orders{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{ url_for('user_orders_page') }}">
+								<i class="icon-lock"></i>{% trans %}My Closed Orders{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{ url_for('user_funds_page') }}">
+								<i class="icon-handbag"></i>{% trans %}My Funds{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{ url_for('user_security_page') }}">
+								<i class="icon-shield"></i>{% trans %}Security{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{ url_for('user_account_page') }}">
+								<i class="icon-settings"></i>{% trans %}My account{% endtrans %}</a>
+							</li>
+							<li class="divider">
+							</li>
+                             {% endif %}
+							<li>
+								<a href="{{ url_for('user.logout') }}">
+								<i class="icon-key"></i> Log Out </a>
+							</li>
+						</ul>
+					</li>
+                    {% else %}
+                     <li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" >
+						<a href="{{ url_for('user.login') }}" class="dropdown-toggle">
+						<i class="icon-user"></i>
+						{% trans %}Login{% endtrans %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</a>
+                     </li>
+                     <li class="dropdown dropdown-extended dropdown-tasks dropdown-dark">
+						<a href="{{ url_for('user.register') }}" class="dropdown-toggle">
+						<i class="icon-plus"></i>
+						{% trans %}Register{% endtrans %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</a>
+                     </li>
+                    {% endif %}
+					<!-- END USER LOGIN DROPDOWN -->
+				</ul>
+			</div>
+			<!-- END TOP NAVIGATION MENU -->
+		</div>
+		<!-- END PAGE TOP -->
+	</div>
+	<!-- END HEADER INNER -->
+</div>

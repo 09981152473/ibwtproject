@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+    <li class="{% if request.url_rule.endpoint in ('user_deposits_withdrawals_page',) %}active{% endif %}">
+        <a href="{{ url_for('user_deposits_withdrawals_page') }}" >{% trans %}ALL{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint in ('user_deposits_page', ) %}active{% endif %}">
+        <a href="{{ url_for('user_deposits_page') }}" >{% trans %}DEPOSITS{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint == 'user_withdrawals_page' %}active{% endif %}">
+        <a href="{{ url_for('user_withdrawals_page') }}">{% trans %}WITHDRAWAL{% endtrans %}</a>
+    </li>
+</ul>

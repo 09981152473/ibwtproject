@@ -1,0 +1,66 @@
+<div class="tab-pane active" id="tab_1_1">
+    <ul class="feeds">
+        {% if accredits.count() %}
+            {% for accredit in accredits %}
+                <li>
+                    <div class="col1">
+                        <div class="cont">
+                            <div class="cont-col1">
+                                <div class="label label-xs label-success">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="cont-col2">
+                                <div class="desc">
+                                    {{ accredit.amount|format_locale_number }} {{ accredit.currency }}<br>
+                                    {% trans %}Accredited from{% endtrans %} <b>{{ accredit.provider.upper() }}</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col2">
+                        <div class="date">
+                            {{ accredit.created_date|convert_datetime }}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>    <p class="text-primary">{% trans %}No accredits found.{% endtrans %}</p>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+<div class="tab-pane" id="tab_1_2">
+    <ul class="feeds">
+        {% if charges.count() %}
+            {% for charge in charges %}
+                <li>
+                    <div class="col1">
+                        <div class="cont">
+                            <div class="cont-col1">
+                                <div class="label label-xs label-danger">
+                                    <i class="fa fa-minus"></i>
+                                </div>
+                            </div>
+                            <div class="cont-col2">
+                                <div class="desc">
+                                    {{ charge.amount|format_locale_number }} {{ charge.currency }}<br>
+                                    {% trans %}Requested from{% endtrans %} <b>{{ charge.provider.upper() }}</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col2">
+                        <div class="date">
+                            {{ charge.created_date|convert_datetime }}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>    <p class="text-primary">{% trans %}No charges found.{% endtrans %}</p>
+            </li>
+        {% endif %}
+    </ul>
+</div>

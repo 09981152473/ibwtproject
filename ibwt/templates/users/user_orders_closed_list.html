@@ -1,0 +1,35 @@
+<table class="table table-striped table-light">
+    <thead>
+    <th>{% trans %}Type{% endtrans %}</th>
+    <th>{% trans %}Currencies{% endtrans %}</th>
+    <th nowrap>{% trans %}Amount{% endtrans %}</th>
+    <th>{% trans %}Fee{% endtrans %}</th>
+    <th>{% trans %}Price{% endtrans %}</th>
+    <th>{% trans %}Total order{% endtrans %}</th>
+     <th>{% trans %}Date{% endtrans %}</th>
+   </thead>
+    <tbody>
+    {%  for order in open_orders %}
+        <tr>
+            <td>
+                <button type="button" class="btn btn-circle btn-{%  if order.order_type == 'buy' %}success{% else %}danger{% endif %} btn-xs">
+                    {{ order.order_type.upper() }}
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-circle btn-{%  if order.order_type == 'buy' %}success{% else %}danger{% endif %} btn-xs">
+                    {{ order.currency }} - {{ order.currency2 }}
+                </button>
+            </td>
+            <td nowrap><b>{{ order.amount_start_no_fee|format_locale_number }} <small>{{ order.currency }}</small></b></td>
+            <td nowrap>{{ order.initial_fee|format_locale_number }} <small>{{ order.currency2 }}</small></td>
+            <td nowrap>{{ order.price_per_unit|format_locale_number }} <small>{{ order.currency2 }}</small></td>
+            <td nowrap><b>{{ order.total_order|format_locale_number }} <small>{{ order.currency2 }}</b></small>
+            <td>{{ order.created_date|convert_datetime }}
+                <br>
+                {% trans %}Ref.{% endtrans %}: {{ order.uuid }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

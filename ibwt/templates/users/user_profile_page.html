@@ -1,0 +1,157 @@
+{% extends "base_templates/page_base.html" %}  {# base_templates/page_base.html extends base_templates/base.html #}
+{% block title %}{{ current_user.first_name }} {{ current_user.last_name }}{% endblock %}
+{% block main %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN PAGE CONTENT-->
+            {% include 'base_templates/base_flashes.html' %}
+            <div class="row">
+                <div class="col-md-12">
+                    {% include 'users/user_sidebar.html' %}
+                    <!-- BEGIN PROFILE CONTENT -->
+                    <div class="profile-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- BEGIN PORTLET -->
+                                <div class="portlet light ">
+                                    <div class="portlet-title">
+                                        <div class="caption caption-md">
+                                            <i class="icon-bar-chart theme-font hide"></i>
+                                            <span class="caption-subject font-blue-madison bold uppercase">{% trans %}Latest buy exchanges{% endtrans %}</span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div id="user_open_buy_orders">
+                                            {% include 'base_templates/loading/loading.html' %}
+                                        </div>
+                                    </div>
+                                    <div class="portlet-footer">
+                                        <a href="{{ url_for('user_buy_orders_page') }}">{% trans %}See all buy orders{% endtrans %}</a>
+                                    </div>
+                                </div>
+                                <!-- END PORTLET -->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- BEGIN PORTLET -->
+                                <div class="portlet light ">
+                                    <div class="portlet-title">
+                                        <div class="caption caption-md">
+                                            <i class="icon-bar-chart theme-font hide"></i>
+                                            <span class="caption-subject font-blue-madison bold uppercase">{% trans %}Latest sell exchanges{% endtrans %}</span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div id="user_open_sell_orders">
+                                            {% include 'base_templates/loading/loading.html' %}
+                                        </div>
+                                    </div>
+                                    <div class="portlet-footer">
+                                        <a href="{{ url_for('user_sell_orders_page') }}">{% trans %}See all sell orders{% endtrans %}</a>
+                                    </div>
+                                </div>
+                                <!-- END PORTLET -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- BEGIN PORTLET -->
+                                <div class="portlet light">
+                                    <div class="portlet-title tabbable-line">
+                                        <div class="caption caption-md">
+                                            <i class="icon-globe theme-font-color hide"></i>
+                                            <span class="caption-subject theme-font-color bold uppercase">{% trans %}Latest transactions to your funds{% endtrans %}</span>
+                                        </div>
+                                        <ul class="nav nav-tabs">
+                                            <li class="open">
+                                                <a href="#tab_1_1" data-toggle="tab" aria-expanded="true">
+                                                    {% trans %}Accredit{% endtrans %} </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#tab_1_2" data-toggle="tab" aria-expanded="false">
+                                                    {% trans %}Charge{% endtrans %} </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <!--BEGIN TABS-->
+                                        <div class="tab-content"  id="user_latest_transactions">
+                                            {% include 'base_templates/loading/loading.html' %}
+                                        </div>
+                                        <!--END TABS-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- BEGIN PORTLET -->
+                                <div class="portlet light tasks-widget">
+                                    <div class="portlet-title">
+                                        <div class="caption caption-md">
+                                            <i class="icon-bar-chart theme-font hide"></i>
+                                            <span class="caption-subject font-blue-madison bold uppercase">{% trans %}Latest closed orders{% endtrans %}</span>
+                                            <span class="caption-helper"></span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div id="user_latest_closed_orders">
+                                            {% include 'base_templates/loading/loading.html' %}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PORTLET -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END PROFILE CONTENT -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    <link href="{{  url_for('static', filename='assets/admin/pages/css/profile.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block post_js %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Sijax.request('get_user_open_buy_orders');
+            Sijax.request('get_user_open_sell_orders');
+            Sijax.request('get_user_latest_transactions');
+            Sijax.request('get_user_total_orders');
+            Sijax.request('get_user_latest_closed_orders');
+        })
+
+        function render_user_open_buy_orders(data){
+            var ref = '#user_open_buy_orders';
+            $(ref).html(data.html)
+            data_tabelize(ref)
+        }
+        function render_user_open_sell_orders(data){
+            var ref = '#user_open_sell_orders';
+            $(ref).html(data.html)
+            data_tabelize(ref)
+        }
+        function render_user_latest_transactions(data){
+            var ref = '#user_latest_transactions';
+            $(ref).html(data.html)
+            data_tabelize(ref)
+        }
+        function render_user_latest_closed_orders(data){
+            var ref = '#user_latest_closed_orders';
+            $(ref).html(data.html)
+            data_tabelize(ref)
+        }
+        function render_user_total_orders(data){
+            $('#user_total_orders').html(data.total_orders)
+            $('#user_open_orders').html(data.total_open_orders)
+            $('#user_closed_orders').html(data.total_closed_orders)
+            $('#user_total_sell_orders').html(data.total_sell_orders)
+            $('#user_total_buy_orders').html(data.total_buy_orders)
+            console.log(data)
+        }
+    </script>
+{% endblock %}

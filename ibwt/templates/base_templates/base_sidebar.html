@@ -1,0 +1,43 @@
+<div class="page-sidebar-wrapper">
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <!-- END SIDEBAR MENU -->
+        <ul class="page-sidebar-menu " id="chat-list">
+            <li class=" start">
+                <a href="#"
+                   style="border-radius:0;color:#fff;margin: 0;padding:5px"
+                   class="btn  blue-hoki">{% trans %}Chatbox{% endtrans %}</a>
+            </li>
+            <li class=" start">
+                {% if current_user.is_authenticated() %}
+
+                    <textarea name="broadcast_data"
+                              class="form-control autoresize-plg"
+                              id="broadcast_data"
+                              style="border-radius: 0;"
+                              placeholder="{{ _('type here your message').capitalize() }}"></textarea>
+                    <input type="button"
+                           style="width: 100%;border-radius:0" id="sendchat" class="btn blue-hoki btn-sm" value="Send">
+                {% else %}
+                    <p class="text-center " style="margin-top: 20px">
+                        <a class="btn blue-hoki" href="{{ url_for('user.login') }}">
+                            {{ _('Login or Signup') }}
+                        </a></p>
+                {% endif %}
+            </li>
+        </ul>
+        <ul class="page-sidebar-menu" id="chat-list-rows">
+            <li class="chat-loading" style="text-align: center;margin-top: 10px">
+                {% include 'base_templates/loading/loading.html' %}
+            </li>
+        </ul>
+    </div>
+</div>

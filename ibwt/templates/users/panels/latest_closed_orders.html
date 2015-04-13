@@ -1,0 +1,42 @@
+<div class="table-scrollable table-scrollable-borderless">
+    <table class="table table-striped table-light">
+        <thead>
+        <tr class="uppercase">
+            <th>
+                {% trans %}Currencies{% endtrans %}
+            </th>
+            <th>
+                {% trans %}Type{% endtrans %}
+            </th>
+            <th>
+                {% trans %}Amount{% endtrans %}
+            </th>
+            <th>
+                {% trans %}Price{% endtrans %}
+            </th>
+            <th>
+                {% trans %}Total{% endtrans %}
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for order in closed_orders %}<tr>
+                <td class="fit">
+                    <button type="button" class="btn btn-circle btn-{% if order.order_type=='buy' %}success{% else %}danger{% endif %} btn-xs">
+                        {{ order.currency }} - {{ order.currency2 }}
+                    </button>
+                </td>
+                <td class="fit">
+                    <button type="button" class="btn btn-circle btn-{% if order.order_type=='buy' %}success{% else %}danger{% endif %} btn-xs">
+                        {{ order.order_type.upper() }}
+                    </button>
+                </td>
+                <td>{{ order.amount_start_no_fee|format_locale_number }} <small>{{ order.currency }}</small></td>
+                <td>{{ order.price_per_unit|format_locale_number }} <small>{{ order.currency2 }}</small></td>
+                <td>{{ order.total_order_no_fee|format_locale_number }} <small>{{ order.currency2 }}</small></td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>

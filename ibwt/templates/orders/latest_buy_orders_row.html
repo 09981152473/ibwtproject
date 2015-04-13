@@ -1,0 +1,6 @@
+<tr>
+    <td><span class="timeago" title="{{ order.created_date|iso_format }}">{{ order.created_date|convert_datetime }}</span></td>
+    <td>{{ order.amount|format_locale_number }} <small>{{ order.currency }}</small></td>
+    <td>{{ order.price_per_unit|format_locale_number }} <small>{{ order.currency2 }}</small></td>
+    <td>{{ order.total_order|format_locale_number }} <small>{{ order.currency2 }}</small></td>
+</tr>

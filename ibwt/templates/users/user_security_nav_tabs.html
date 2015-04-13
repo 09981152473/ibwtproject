@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+    <li class="{% if request.url_rule.endpoint in ('user_security_page',) %}active{% endif %}">
+        <a href="{{ url_for('user_security_page') }}" >{% trans %}Two Factor Authentication{% endtrans %}</a>
+    </li>
+</ul>

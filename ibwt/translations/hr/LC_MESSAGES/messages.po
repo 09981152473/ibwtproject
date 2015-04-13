@@ -1,0 +1,219 @@
+# Croatian translations for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-02-23 04:58-0500\n"
+"PO-Revision-Date: 2015-02-23 05:31-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: hr <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: orders/forms.py:13 orders/forms.py:27
+msgid "From"
+msgstr ""
+
+#: orders/forms.py:14 orders/forms.py:28
+msgid "To"
+msgstr ""
+
+#: orders/forms.py:16 orders/forms.py:30 templates/orders/forms/buy.html:11
+#: templates/orders/forms/sell.html:11 templates/users/user_orders_page.html:10
+msgid "Amount"
+msgstr ""
+
+#: orders/forms.py:17 orders/forms.py:21 orders/forms.py:31 orders/forms.py:33
+msgid "This field is required"
+msgstr ""
+
+#: orders/forms.py:20 orders/forms.py:32 templates/orders/forms/buy.html:20
+#: templates/orders/forms/sell.html:20 templates/users/user_orders_page.html:11
+msgid "Price"
+msgstr ""
+
+#: templates/base_templates/base.html:54
+#: templates/users/user_profile_page.html:4
+msgid "Account"
+msgstr ""
+
+#: templates/base_templates/base.html:55
+msgid "Funds"
+msgstr ""
+
+#: templates/base_templates/base.html:56
+#: templates/users/user_orders_page.html:4
+msgid "Orders"
+msgstr ""
+
+#: templates/flask_user/change_password.html:5
+msgid "Change Password"
+msgstr ""
+
+#: templates/flask_user/change_username.html:5
+msgid "Change Username"
+msgstr ""
+
+#: templates/flask_user/forgot_password.html:5
+msgid "Forgot Password"
+msgstr ""
+
+#: templates/flask_user/login.html:5
+#: templates/flask_user/login_or_register.html:9
+msgid "Sign in"
+msgstr ""
+
+#: templates/flask_user/login.html:21
+msgid "New here? Register."
+msgstr ""
+
+#: templates/flask_user/login.html:44
+#: templates/flask_user/login_or_register.html:34
+msgid "Forgot your Password?"
+msgstr ""
+
+#: templates/flask_user/login_or_register.html:41
+#: templates/flask_user/register.html:5
+msgid "Register"
+msgstr ""
+
+#: templates/flask_user/manage_emails.html:5
+msgid "Manage Emails"
+msgstr ""
+
+#: templates/flask_user/register.html:21
+msgid "Already registered? Sign in."
+msgstr ""
+
+#: templates/flask_user/resend_confirm_email.html:5
+msgid "Resend Confirmation Email"
+msgstr ""
+
+#: templates/flask_user/reset_password.html:5
+msgid "Reset Password"
+msgstr ""
+
+#: templates/flask_user/emails/base_message.html:4
+#: templates/flask_user/emails/base_message_clean.html:5
+msgid "Confirm your registration"
+msgstr ""
+
+#: templates/flask_user/emails/base_message.html:63
+#: templates/flask_user/emails/base_message_clean.html:707
+msgid "This ia a system generated email and reply is not required."
+msgstr ""
+
+#: templates/flask_user/emails/base_message.html:74
+#: templates/flask_user/emails/base_message_clean.html:730
+msgid "About Us"
+msgstr ""
+
+#: templates/flask_user/emails/base_message.html:76
+#: templates/flask_user/emails/base_message_clean.html:732
+msgid "Privacy Policy"
+msgstr ""
+
+#: templates/flask_user/emails/base_message.html:78
+#: templates/flask_user/emails/base_message_clean.html:734
+msgid "Terms of Use"
+msgstr ""
+
+#: templates/orders/forms/buy.html:4 templates/orders/forms/buy.html:36
+msgid "buy"
+msgstr ""
+
+#: templates/orders/forms/buy.html:29 templates/orders/forms/sell.html:29
+msgid "Fee"
+msgstr ""
+
+#: templates/orders/forms/buy.html:30 templates/orders/forms/sell.html:30
+#: templates/users/user_orders_page.html:12
+msgid "Total order"
+msgstr ""
+
+#: templates/orders/forms/buy.html:35 templates/orders/forms/sell.html:35
+msgid "reset"
+msgstr ""
+
+#: templates/orders/forms/buy.html:42 templates/orders/forms/sell.html:42
+msgid "Login"
+msgstr ""
+
+#: templates/orders/forms/buy.html:43 templates/orders/forms/sell.html:43
+msgid "signup"
+msgstr ""
+
+#: templates/orders/forms/buy.html:43 templates/orders/forms/sell.html:43
+msgid "for trading"
+msgstr ""
+
+#: templates/orders/forms/sell.html:4 templates/orders/forms/sell.html:36
+msgid "sell"
+msgstr ""
+
+#: templates/users/user_funds_page.html:32
+msgid "deposit"
+msgstr ""
+
+#: templates/users/user_funds_page.html:42
+msgid "bank transfer"
+msgstr ""
+
+#: templates/users/user_funds_page.html:49
+msgid "withdrawal"
+msgstr ""
+
+#: templates/users/user_orders_page.html:8
+msgid "Date"
+msgstr ""
+
+#: templates/users/user_orders_page.html:9
+msgid "Type"
+msgstr ""
+
+#: templates/users/user_profile_page.html:6
+msgid "Change password"
+msgstr ""
+
+#: users/forms.py:21
+msgid "First name"
+msgstr ""
+
+#: users/forms.py:22
+msgid "First name is required"
+msgstr ""
+
+#: users/forms.py:23
+msgid "Last name"
+msgstr ""
+
+#: users/forms.py:24
+msgid "Last name is required"
+msgstr ""
+
+#: users/forms.py:25
+msgid "Preferred language"
+msgstr ""
+
+#: users/forms.py:28
+msgid "Timezone"
+msgstr ""
+
+#: users/forms.py:32
+msgid "Save"
+msgstr ""
+
+#: users/views.py:35
+#, python-format
+msgid "Your language has been set to: %s"
+msgstr ""
+

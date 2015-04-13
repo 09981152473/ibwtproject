@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+    <li class="{% if request.url_rule.endpoint in ('user_orders_closed_page',) %}active{% endif %}">
+        <a href="{{ url_for('user_orders_closed_page') }}" >{% trans %}ALL{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint in ('user_buy_orders_closed_page', ) %}active{% endif %}">
+        <a href="{{ url_for('user_buy_orders_closed_page') }}" >{% trans %}BUY{% endtrans %}</a>
+    </li>
+    <li class="{% if request.url_rule.endpoint == 'user_sell_orders_closed_page' %}active{% endif %}">
+        <a href="{{ url_for('user_sell_orders_closed_page') }}">{% trans %}SELL{% endtrans %}</a>
+    </li>
+</ul>

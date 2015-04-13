@@ -1,0 +1,23 @@
+{% for currency in g.site_currencies or [] %}
+    <div class="col-sm-5 col-md-4" >
+        <div class="portlet light ">
+            <div class="portlet-title ">
+                <div class="caption caption-md">
+                    <strong>{{ currency }}</strong> <small>{{ g.site_currencies[currency][1] }}</small>
+                </div>
+            </div>
+            <div class=portlet-body">
+
+            <p class="lead text-right number">{{ current_user[currency]|format_locale_number or 0|format_locale_number }}</p>
+
+            <a href="{{ url_for('funds_crypto_load', currency=currency) }}" class="btn btn-success pull-right">
+                <strong>{% trans %}Deposit{% endtrans %}</strong>
+            </a>
+            <a href="{{ url_for('user_funds_withdrawal_page', currency=currency) }}" class="btn btn-default">
+                <strong>{{ _('withdrawal').capitalize() }}</strong>
+            </a>
+        </div>
+    </div>
+    </div>
+{% endfor %}
+

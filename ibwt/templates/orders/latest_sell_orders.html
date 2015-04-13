@@ -1,0 +1,41 @@
+<div class="col-md-6 col-sm-6">
+    <div class="portlet light main-chart">
+        <div class="portlet-title">
+            <div class="caption caption-md">
+                <i class="icon-bar-chart theme-font-color hide"></i>
+                            <span class="caption-subject theme-font-color bold uppercase">
+                                {% trans %}Latest sell orders{% endtrans %}
+                            </span>
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse" data-original-title="" title="">
+                </a>
+                <a href="javascript:;" class="reload" data-original-title="" title="">
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div>
+                    <table class="table table-striped table-condensed dataTable">
+                    <thead>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Date{% endtrans %}</th>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Amount{% endtrans %}</th>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Price{% endtrans %}</th>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Total order{% endtrans %}</th>
+                    </thead>
+                    <tbody>
+                        {%  for order in user_orders %}
+                            {% include 'orders/latest_sell_orders_row.html' %}
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Date{% endtrans %}</th>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Amount{% endtrans %}</th>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Price{% endtrans %}</th>
+                        <th class="theme-font-color weight-normal uppercase">{% trans %}Total order{% endtrans %}</th>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

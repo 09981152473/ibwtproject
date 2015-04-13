@@ -1,0 +1,9 @@
+{% for message in messages %}
+    <li>
+        <a href="#">
+            <div class="chat-user-name">{{ message.text }}</div>
+            <div class="clearfix"></div>
+            <span class="chat-user-msg">{{ message.user }}</span>
+        </a>
+    </li>
+{% endfor %}

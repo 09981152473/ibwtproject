@@ -1,0 +1,27 @@
+{% extends 'flask_user/emails/base_message.html' %}
+
+{% block message %}
+    <table class="container content" align="center" style="border-spacing: 0;border-collapse: collapse;padding: 0;vertical-align: top;text-align: inherit;width: 580px;margin: 0 auto">
+      <tr style="padding: 0;vertical-align: top;text-align: left"><td style="word-break: break-word;-webkit-hyphens: auto;-moz-hyphens: auto;hyphens: auto;border-collapse: collapse !important;padding: 0;vertical-align: top;text-align: left;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;margin: 0;line-height: 19px;font-size: 14px">
+				<table class="row note" style="border-spacing: 0;border-collapse: collapse;padding: 0;vertical-align: top;text-align: left;width: 100%;position: relative;display: block"><tr style="padding: 0;vertical-align: top;text-align: left"><td class="wrapper last" style="word-break: break-word;-webkit-hyphens: auto;-moz-hyphens: auto;hyphens: auto;border-collapse: collapse !important;padding: 0;vertical-align: top;text-align: left;position: relative;padding-right: 0;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;margin: 0;line-height: 19px;font-size: 14px">
+						<h4 style="color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;padding: 0;margin: 5px 0 15px 0;text-align: left;line-height: 1.3;word-break: normal;font-size: 22px;display: block">Thank you for joining the IBWT Community!</h4>
+						<p style="margin: 0;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;padding: 0;text-align: left;line-height: 19px;font-size: 14px;margin-bottom: 10px">
+							 You will need to confirm your email to start using {{ app_name }}.
+						</p>
+                        <p style="margin: 0;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;padding: 0;text-align: left;line-height: 19px;font-size: 14px;margin-bottom: 10px">If you initiated this confirmation, please click on the link below:<br/><!-- BEGIN: Note Panel --></p><table class="twelve columns" style="margin-bottom: 10px;border-spacing: 0;border-collapse: collapse;padding: 0;vertical-align: top;text-align: left;margin: 0 auto;width: 580px"><tr style="padding: 0;vertical-align: top;text-align: left"><td class="panel" style="word-break: break-word;-webkit-hyphens: auto;-moz-hyphens: auto;hyphens: auto;border-collapse: collapse !important;padding: 10px !important;vertical-align: top;text-align: left;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;margin: 0;line-height: 19px;font-size: 14px;background: #ECF8FF;border: 0">
+								<a href="{{ confirm_email_link }}" style="color: #2ba6cb;text-decoration: none">
+								{{ confirm_email_link }} </a>
+							</td>
+							<td class="expander" style="word-break: break-word;-webkit-hyphens: auto;-moz-hyphens: auto;hyphens: auto;border-collapse: collapse !important;padding: 0 !important;vertical-align: top;text-align: left;visibility: hidden;width: 0;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;margin: 0;line-height: 19px;font-size: 14px">
+							</td>
+						</tr></table><p style="margin: 0;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;padding: 0;text-align: left;line-height: 19px;font-size: 14px;margin-bottom: 10px">
+							 If clicking the URL above does not work, copy and paste the URL into a browser window.
+						</p>
+						<!-- END: Note Panel -->
+                        <p style="margin: 0;color: #222;font-family: &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;font-weight: normal;padding: 0;text-align: left;line-height: 19px;font-size: 14px;margin-bottom: 10px">If you did not initiate this confirmation, you may safely ignore this email.</p>
+
+					</td>
+				</tr></table></td>
+		</tr>
+    </table>
+{% endblock %}

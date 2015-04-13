@@ -1,0 +1,6 @@
+<select name="currency" id="select-currency" style="width: 150px">
+    <option value="">{% trans %}Currency{% endtrans %}</option>
+    {% for currency in g.site_currencies %}
+        <option value="{{ currency }}">{{ currency }} - {{ g.site_currencies[currency][1] }}</option>
+    {% endfor %}
+</select>

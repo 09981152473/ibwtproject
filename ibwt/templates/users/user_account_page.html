@@ -1,0 +1,143 @@
+{% extends "base_templates/page_base.html" %}  {# base_templates/page_base.html extends base_templates/base.html #}
+{% block title %}{{ current_user.first_name }} {{ current_user.last_name }}{% endblock %}
+{% from "flask_user/_macros.html" import render_field, render_checkbox_field, render_submit_field %}
+
+{% block main %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN PAGE CONTENT-->
+            {% include 'base_templates/base_flashes.html' %}
+          <div class="row">
+                <div class="col-md-12">
+                    {% include 'users/user_sidebar.html' %}
+                    <!-- BEGIN PROFILE CONTENT -->
+                    <div class="profile-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN PORTLET -->
+                                <div class="portlet light ">
+                                    <div class="portlet-title tabbable-line">
+                                        <div class="caption caption-md">
+                                            <i class="icon-globe theme-font hide"></i>
+                                            <span class="caption-subject font-blue-madison bold uppercase">{% trans %}Profile Account{% endtrans %}</span>
+                                        </div>
+                                        {% include 'users/user_account_nav_tabs.html' %}
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="tab-content">
+                                            <!-- PERSONAL INFO TAB -->
+                                            <div class="tab-pane active" id="tab_1_1">
+                                                <form action="{{ url_for('user_account_page') }}" method="POST" class="form" role="form">
+                                                    {{ form.hidden_tag() }}
+
+                                                    {% set field = form.first_name %}
+                                                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                                        {# Label on left, "New here? Register." on right #}
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <label for="{{ field.id }}" class="control-label">{{ field.label.text }}</label>
+                                                            </div>
+                                                        </div>
+                                                        {{ field(class_='form-control', tabindex=110) }}
+                                                        {% if field.errors %}
+                                                            {% for e in field.errors %}
+                                                                <p class="help-block">{{ e }}</p>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+
+                                                    {% set field = form.last_name %}
+                                                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                                        {# Label on left, "New here? Register." on right #}
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <label for="{{ field.id }}" class="control-label">{{ field.label.text }}</label>
+                                                            </div>
+                                                        </div>
+                                                        {{ field(class_='form-control', tabindex=110) }}
+                                                        {% if field.errors %}
+                                                            {% for e in field.errors %}
+                                                                <p class="help-block">{{ e }}</p>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+
+
+                                                    {% set field = form.locale %}
+                                                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                                        {# Label on left, "New here? Register." on right #}
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <label for="{{ field.id }}" class="control-label">{{ field.label.text }}</label>
+                                                            </div>
+                                                        </div>
+                                                        {{ field(class_='better-select', tabindex=110) }}
+                                                        {% if field.errors %}
+                                                            {% for e in field.errors %}
+                                                                <p class="help-block">{{ e }}</p>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+
+                                                    {% set field = form.timezone %}
+                                                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                                        {# Label on left, "New here? Register." on right #}
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <label for="{{ field.id }}" class="control-label">{{ field.label.text }}</label>
+                                                            </div>
+                                                        </div>
+                                                        {{ field(class_='better-select', tabindex=110) }}
+                                                        {% if field.errors %}
+                                                            {% for e in field.errors %}
+                                                                <p class="help-block">{{ e }}</p>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+
+
+                                                    <div class="margiv-top-10">
+                                                        {{ render_submit_field(form.submit,class="btn btn-success", tabindex=280) }}
+                                                        <a href="{{ url_for('user_account_page') }}" class="btn default">
+                                                            {% trans %}Cancel{% endtrans %} </a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-footer">
+
+                                    </div>
+                                </div>
+                                <!-- END PORTLET -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PROFILE CONTENT -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    <link href="{{  url_for('static', filename='assets/admin/pages/css/profile.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block post_js %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Sijax.request('get_user_total_orders');
+        })
+        function render_user_total_orders(data){
+            $('#user_total_orders').html(data.total_orders)
+            $('#user_open_orders').html(data.total_open_orders)
+            $('#user_closed_orders').html(data.total_closed_orders)
+            $('#user_total_sell_orders').html(data.total_sell_orders)
+            $('#user_total_buy_orders').html(data.total_buy_orders)
+            console.log(data)
+        }
+    </script>
+{% endblock %}

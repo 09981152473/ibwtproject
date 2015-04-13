@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="{{ g.locale }}" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="{{ g.locale }}" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="{{ g.locale }}"> <!--<![endif]-->
+
+<head>
+    <!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>inBitWeTrust {% block title %}{% trans %}| Welcome{% endtrans %}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="{{ g.locale }}">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/plugins/uniform/css/uniform.default.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/plugins/pace/themes/pace-theme-minimal.css') }}" rel="stylesheet" type="text/css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <link href="{{ url_for('static', filename='assets/global/css/components-rounded.css') }}" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/css/plugins.css" rel="stylesheet') }}" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/admin/layout4/css/layout.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/admin/layout4/css/themes/light.css') }}" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="{{ url_for('static', filename='assets/admin/layout4/css/custom.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='assets/global/css/selectize.default.css') }}" id="style_components" rel="stylesheet" type="text/css"/>
+
+
+    <link href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/tabletools/2.2.3/css/dataTables.tableTools.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/fixedheader/2.1.2/css/dataTables.fixedHeader.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/colvis/1.1.1/css/dataTables.colVis.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favico.ico') }}">
+
+    <style type="text/css">
+        .dataTables_filter {display: none}
+        .weight-normal {font-weight: normal !important;}
+        table.dataTable tfoot th, table.dataTable tfoot td {
+            border-top: 1px solid #B2B2B2;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            border-bottom: 1px solid #B2B2B2;
+        }    </style>
+
+    {% block css %}{% endblock %}
+    {% block js %}{% endblock %}
+</head>
+<!-- END HEAD -->
+
+
+<body class="{% block tab_body_class %}page-header-fixed page-sidebar-closed-hide-logo page-sidebar-reversed{% endblock %}">
+
+{% include 'base_templates/base_header.html' %}
+
+<div class="clearfix"></div>
+
+
+
+<div class="page-container">
+
+
+    {% include 'base_templates/base_sidebar.html' %}
+
+    {% block main %}{% endblock %}
+
+    {% include 'base_templates/base_footer.html' %}
+
+</div>
+
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+    <script src="{{ url_for('static', filename='assets/global/plugins/respond.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/global/plugins/excanvas.min.js') }}"></script>
+    <![endif]-->
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery-migrate.min.js') }}" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery.cokie.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/socket.io.0.9.6.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/scripts/moment.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/scripts/moment-timezone-with-data.min.js') }}"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/fixedheader/2.1.2/js/dataTables.fixedHeader.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/tabletools/2.2.3/js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.min.js"></script>
+<script src="//code.highcharts.com/stock/highstock.js"></script>
+<script src="//code.highcharts.com/stock/modules/exporting.js"></script>
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script><![endif]-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+
+<script src="{{ url_for('static', filename='assets/global/scripts/metronic.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/admin/layout/scripts/layout.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/admin/layout/scripts/quick-sidebar.js') }}" type="text/javascript"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/sijax/sijax.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/scripts/jquery.countup.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/admin/pages/scripts/ui-alert-dialog-api.js') }}"></script>  <!-- END CORE PLUGINS -->
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/plugins/bootbox/bootbox.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/plugins/pace/pace.min.js') }}"></script>
+
+
+{% if current_user.is_authenticated() %}
+    <script src="{{ url_for('static', filename='assets/global/plugins/jquery-idle-timeout/jquery.idletimeout.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='assets/global/plugins/jquery-idle-timeout/jquery.idletimer.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='assets/admin/pages/scripts/ui-idletimeout.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            UIIdleTimeout.init();
+        })
+    </script>
+{% endif %}
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/scripts/selectize.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/scripts/jquery.slimscroll.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/global/scripts/jquery.jscroll.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/autosize.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.textareaCounter.plugin.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/base.js') }}"></script>
+
+<script type="text/javascript" charset="utf-8">
+    var timezone = '{{ g.timezone }}';
+    var graph_name = '{{ session['currencies'][0] }} - {{ session['currencies'][1] }}';
+    var global_locale = '{{ g.locale }}';
+    var global_locale_en ='{{ g.locale|get_english_locale_name }}';
+    autosize($('textarea'));
+    var options2 = {
+				'maxCharacterSize': 200,
+				'originalStyle': 'originalDisplayInfo',
+				'warningStyle': 'warningDisplayInfo',
+				'warningNumber': 40,
+				'displayFormat': '#left {% trans %}Characters Left{% endtrans %}'
+			};
+	$('#broadcast_data').textareaCount(options2);
+</script>
+
+{% block post_js %}{% endblock %}
+</body>
+</html>
