@@ -1,61 +1,63 @@
 # -*- coding: utf-8 -*-
 # WALLETS CONNECTION
-# Bitcoin
+# DEFINE FOR EVERY CRYPTOCURRENCY
+# ITS CREDENTIAL TO ACCESS TO WALLET
+
 import pyjsonrpc
 
-BTC_CONF_FILE='/home/bitcoinuser/.bitcoin/bitcoin.conf'
+BTC_CONF_FILE='PATH/TO/CONF'
 BTC_NETWORK = 'testnet'
-BTC_URL = 'http://127.0.0.1:8332'
-BTC_USERNAME = 'bitcoinuser'
-BTC_PASSWORD = 'ndifanci35nci240nxi40ntc30n6c24i0n54i20nx4n20'
-BTC_ACCOUNT = 'IBWT_BANK'
+BTC_URL = 'URL:PORT'
+BTC_USERNAME = 'YOUR_USERNAME'
+BTC_PASSWORD = 'YOUR_PASSWORD'
+BTC_ACCOUNT = 'YOUR_ACCOUNT'
 # Litecoin
-LTC_CONF_FILE='/home/bitcoinuser/.litecoin/litecoin.conf'
-LTC_NETWORK = 'testnet'
-LTC_URL = 'http://127.0.0.1:9332'
-LTC_USERNAME = 'litecoinuser'
-LTC_PASSWORD = 'ndadghdhgadgH*thaec24i0n54i20nx4n20'
-LTC_ACCOUNT = 'IBWT_BANK'
+LTC_CONF_FILE='PATH/TO/CONF'
+LTC_NETWORK = 'testnet' # only in test
+LTC_URL = 'URL:PORT'
+LTC_USERNAME = 'YOUR_USERNAME'
+LTC_PASSWORD = 'YOUR_PASSWORD'
+LTC_ACCOUNT = 'YOUR_ACCOUNT'
 
 # Quarkcoin
-QRK_CONF_FILE='/home/bitcoinuser/.quarkcoin/quarkcoin.conf'
-QRK_NETWORK = 'testnet'
-QRK_URL = 'http://127.0.0.1:10332'
-QRK_USERNAME = 'quarkcoinuser'
-QRK_PASSWORD = "nsfghf£$HFRFSGHnfhgVsgvtwrRWT0nx4n20"
-QRK_ACCOUNT = 'IBWT_BANK'
+QRK_CONF_FILE='PATH/TO/CONF'
+QRK_NETWORK = 'testnet' # only in test
+QRK_URL = 'URL:PORT'
+QRK_USERNAME = 'YOUR_USERNAME'
+QRK_PASSWORD = "YOUR_PASSWORD"
+QRK_ACCOUNT = 'YOUR_ACCOUNT'
 
 # Darkcoin
-DRK_CONF_FILE='/home/bitcoinuser/.darkcoin/darkcoin.conf'
-DRK_NETWORK = 'testnet'
-DRK_URL = 'http://127.0.0.1:11332'
-DRK_USERNAME = 'darkcoinuser'
-DRK_PASSWORD = "ndsgi426nfi42x0i4n250xi4n0iv6n245"
-DRK_ACCOUNT = 'IBWT_BANK'
+DRK_CONF_FILE='PATH/TO/CONF'
+DRK_NETWORK = 'testnet' # only in test
+DRK_URL = 'URL:PORT'
+DRK_USERNAME = 'YOUR_USERNAME'
+DRK_PASSWORD = "YOUR_PASSWORD"
+DRK_ACCOUNT = 'YOUR_ACCOUNT'
 
 # Namecoin
 NMC_CONF_FILE='/home/bitcoinuser/.namecoin/namecoin.conf'
-NMC_NETWORK = 'testnet'
-NMC_URL = 'http://127.0.0.1:14332'
-NMC_USERNAME = 'namecoinuser'
-NMC_PASSWORD = "dan9c29nx084b6v024nx9zn9Dgfc6429v42kmn"
-NMC_ACCOUNT = 'IBWT_BANK'
+NMC_NETWORK = 'testnet' # only in test
+NMC_URL = 'URL:PORT'
+NMC_USERNAME = 'YOUR_USERNAME'
+NMC_PASSWORD = "YOUR_PASSWORD"
+NMC_ACCOUNT = 'YOUR_ACCOUNT'
 
 # Novacoin
 NVC_CONF_FILE='/home/bitcoinuser/.novacoin/novacoin.conf'
-NVC_NETWORK = 'testnet'
-NVC_URL = 'http://127.0.0.1:12332'
-NVC_USERNAME = 'darkcoinuser'
-NVC_PASSWORD = "afndsgtocn4tonvonwatovc243to2n4x"
-NVC_ACCOUNT = 'IBWT_BANK'
+NVC_NETWORK = 'testnet' # only in test
+NVC_URL = 'URL:PORT'
+NVC_USERNAME = 'YOUR_USERNAME'
+NVC_PASSWORD = "YOUR_PASSWORD"
+NVC_ACCOUNT = 'YOUR_ACCOUNT'
 
 
 # PPC
 PPC_CONF_FILE='/home/bitcoinuser/.ppcoin/ppcoin.conf'
-PPC_URL = 'http://127.0.0.1:13332'
-PPC_USERNAME = 'ppcoinuser'
-PPC_PASSWORD = "abc4bcu4b60b20x48b5c0842b580bv085b2405n2094kx0n2"
-PPC_ACCOUNT = 'IBWT_BANK'
+PPC_URL = 'URL:PORT'
+PPC_USERNAME = 'YOUR_USERNAME'
+PPC_PASSWORD = "YOUR_PASSWORD"
+PPC_ACCOUNT = 'YOUR_ACCOUNT'
 
 
 btc_client = pyjsonrpc.HttpClient(
