@@ -83,8 +83,6 @@ LANGUAGES = {
     'zh': 'Chinese',
 }
 
-
-
 # sijax
 path = os.path.join('.', os.path.dirname(__file__), 'static/js/sijax/')
 SIJAX_STATIC_PATH = path
