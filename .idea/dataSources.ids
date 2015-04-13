@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @IBWT" uuid="dbc1ca20-6770-43f0-a19e-2b54a77c0eaf">
+    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="ibwt"/>
+    <table name="buy" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="uuid" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="order_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="currency" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency2" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount_start_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount_start" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="diff" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="initial_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee_percentage" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="price_per_unit" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="flag_completed" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="buy_ibfk_1" columns="uid" ref-table="user" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="ix_buy_currency" unique="false" columns="currency"/>
+      <index name="ix_buy_currency2" unique="false" columns="currency2"/>
+      <index name="ix_buy_uid" unique="false" columns="uid"/>
+    </table>
+    <table name="buy_history" schema="" catalog="ibwt" type="TABLE">
+      <column name="id_history" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="uuid" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="order_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="currency" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency2" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount_start_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount_start" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="diff" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="initial_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee_percentage" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="price_per_unit" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="flag_completed" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id_history"/>
+      <foreign-key name="buy_history_ibfk_1" columns="uid" ref-table="user" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="ix_buy_history_currency" unique="false" columns="currency"/>
+      <index name="ix_buy_history_currency2" unique="false" columns="currency2"/>
+      <index name="ix_buy_history_uid" unique="false" columns="uid"/>
+    </table>
+    <table name="role" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_roles_ibfk_2" table="user_roles" schema="" catalog="ibwt" columns="role_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="sell" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="uuid" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="order_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="currency" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency2" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount_start_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount_start" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="initial_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee_percentage" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="price_per_unit" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="flag_completed" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="sell_ibfk_1" columns="uid" ref-table="user" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="ix_sell_currency" unique="false" columns="currency"/>
+      <index name="ix_sell_currency2" unique="false" columns="currency2"/>
+      <index name="ix_sell_uid" unique="false" columns="uid"/>
+    </table>
+    <table name="sell_buy" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="order_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="usid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ubid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sid" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="bid" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency2" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount_of_buy" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="price_per_unit" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="price_per_unit_sell" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_order" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_order_sell" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="total_order_no_fee" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="diff" sqlType="DECIMAL" precision="10" scale="0" nullable="true" jdbcType="3"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sell_history" schema="" catalog="ibwt" type="TABLE">
+      <column name="id_history" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="uuid" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="order_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="currency" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency2" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount_start_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount_start" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="amount" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="initial_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="fee_percentage" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="price_per_unit" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="total_order_no_fee" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="flag_completed" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id_history"/>
+      <foreign-key name="sell_history_ibfk_1" columns="uid" ref-table="user" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="ix_sell_history_currency" unique="false" columns="currency"/>
+      <index name="ix_sell_history_currency2" unique="false" columns="currency2"/>
+      <index name="ix_sell_history_uid" unique="false" columns="uid"/>
+    </table>
+    <table name="trade_data" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="currency" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency2" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="min_buy_price" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="max_sell_price" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ix_trade_data_currency" unique="false" columns="currency"/>
+      <index name="ix_trade_data_currency2" unique="false" columns="currency2"/>
+    </table>
+    <table name="transaction" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="uuid" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="txid" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="provider" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="transaction_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="currency" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="blockhash" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="blockindex" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hex" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="blocktime" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="confirmations" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timereceived" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ix_transaction_currency" unique="false" columns="currency"/>
+      <index name="ix_transaction_id_user" unique="false" columns="id_user"/>
+      <index name="ix_transaction_transaction_type" unique="false" columns="transaction_type"/>
+    </table>
+    <table name="user" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="google_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facebook_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="avatar" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="first_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="last_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="USD" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="EUR" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="RUR" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="CNY" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="JPY" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="LTC" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="QRK" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="NMC" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="NVC" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="XPM" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="BTC" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="DRK" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="PPC" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="URO" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="DOGE" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="locale" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timezone" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="white_list_ip" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="otp_secret" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="buy_ibfk_1" table="buy" schema="" catalog="ibwt" columns="uid"/>
+      <exported-key name="buy_history_ibfk_1" table="buy_history" schema="" catalog="ibwt" columns="uid"/>
+      <exported-key name="sell_ibfk_1" table="sell" schema="" catalog="ibwt" columns="uid"/>
+      <exported-key name="sell_history_ibfk_1" table="sell_history" schema="" catalog="ibwt" columns="uid"/>
+      <exported-key name="user_auth_ibfk_1" table="user_auth" schema="" catalog="ibwt" columns="user_id"/>
+      <exported-key name="user_roles_ibfk_1" table="user_roles" schema="" catalog="ibwt" columns="user_id"/>
+      <index name="email" unique="true" columns="email"/>
+    </table>
+    <table name="user_auth" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_auth_ibfk_1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="user_deposit_withdrawal" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="uuid" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="transaction_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="provider" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="currency" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ix_user_deposit_withdrawal_currency" unique="false" columns="currency"/>
+      <index name="ix_user_deposit_withdrawal_id_user" unique="false" columns="id_user"/>
+      <index name="ix_user_deposit_withdrawal_transaction_type" unique="false" columns="transaction_type"/>
+    </table>
+    <table name="user_roles" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="role_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_roles_ibfk_1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="user_roles_ibfk_2" columns="role_id" ref-table="role" ref-schema="" ref-catalog="ibwt" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="user_wallet" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="id_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="currency" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="flag_used" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ix_user_wallet_id_user" unique="false" columns="id_user"/>
+    </table>
+    <table name="volumes" schema="" catalog="ibwt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="currency" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="volume" sqlType="DECIMAL" precision="14" scale="6" nullable="true" jdbcType="3"/>
+      <column name="created_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ix_volumes_currency" unique="false" columns="currency"/>
+    </table>
+  </data-source>
+</component>
