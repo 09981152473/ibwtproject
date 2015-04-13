@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import os, locale
-ADMINS = ['bigadsoleiman@gmail.com',]
+ADMINS = ['address@example.com',]
 #uDyDOFZchP2lc5OhFAUU
-SECRET_KEY = 'uDyDOFZchP2lc5OhFAUUaGKpfIOQjVcUp|gvL00\qABKbM7L_mXcoLbzshX5HpjogtMKf6bkNghZAgX2EaufJtuAIXbVsW66L0Zuf7qnxtJy9IFNYLMMhpTZ07C'
+SECRET_KEY = '{{ YOUR SECRET }}'
 SESSION_KEY_BITS = 2048
-SESSION_COOKIE_NAME = 'bC1YIDQBsG'
 DEBUG = False
 DEBUG_TB_ENABLED = False
 DEBUG_TB_PROFILER_ENABLED = False
@@ -15,16 +14,15 @@ WTF_CSRF_ENABLED = True
 CSRF_ENABLED = True
 WTF_CSRF_SSL_STRICT = True
 SESSION_COOKIE_SECURE = True
-PREFERRED_URL_SCHEME = 'https'
 
 
 # DB SETTINGS
-SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://web:klNLwLlMJhk5ItUiMZGH@localhost/ibwt'
-MONGODB_SETTINGS = {'DB': "ibwt_chat"}
+SQLALCHEMY_DATABASE_URI = '{{ SQLALCHEMY URI }}'
+MONGODB_SETTINGS = {'DB': "{{ MondoDB for chat }}"}
 
 
 # MAIL SETTINGS
-MAIL_DEFAULT_SENDER = '"IBWT" <accounts@inbitwetrust.com>'
+MAIL_DEFAULT_SENDER = '"IBWT" <accounts@example.com>'
 MAIL_SERVER = 'localhost'
 MAIL_PORT=25
 USER_APP_NAME = 'IBWT'
@@ -99,11 +97,11 @@ USER_REGISTER_TEMPLATE                  = 'flask_user/login.html'
 
 
 # oAuth google
-GOOGLE_LOGIN_CLIENT_ID = '308375231537-cdph13pu0u5apm1ncl22rnb61kvuvci9.apps.googleusercontent.com'
-GOOGLE_LOGIN_CLIENT_SECRET = 'PRhVwbodKw7DP3UJh25rss5C'
-GOOGLE_LOGIN_REDIRECT_URI =  '/login/google'
-GOOGLE_LOGIN_REDIRECT_SCHEME = 'https'
+GOOGLE_LOGIN_CLIENT_ID = '{{ Google cliend ID }}'
+GOOGLE_LOGIN_CLIENT_SECRET = '{{ Google client secret }}'
+GOOGLE_LOGIN_REDIRECT_URI =  '{{ Google login redirect url }}'
+GOOGLE_LOGIN_REDIRECT_SCHEME = '{{ login redirect scheme }}'
 
 # oAuth facebook
-FACEBOOK_APP_ID = '288115984721576'
-FACEBOOK_APP_SECRET = '70cd2d3e79bf6083e5740fb992392c9b'
+FACEBOOK_APP_ID = '{{ facebook app id }}'
+FACEBOOK_APP_SECRET = '{{ facebook app secret }}'
