@@ -37,18 +37,12 @@ def reset_db(app, db):
     list_users = []
 
     user = add_user(app, db, 'admin', 'Admin', 'User', 'admin@example.com', 'Password1')
-    user2 = add_user(app, db, 'bigad', 'Bigad', 'Soleiman', 'bigadsoleiman@gmail.com', 'Password1')
-    user3 = add_user(app, db, 'pmeraviglia', 'Paolo', 'Meraviglia', 'paolomeraviglia@gmail.com', 'Password1')
-
-
 
     for currency in SITE_CURRENCIES:
         volume = Volumes(currency=currency, volume=0)
         db.session.add(volume)
 
         setattr(user, currency, decimal.Decimal(str(uniform(9000, 9999))))
-        setattr(user2, currency, decimal.Decimal(str(uniform(9000, 9999))))
-        setattr(user3, currency, decimal.Decimal(str(uniform(9000, 9999))))
     user.roles.append(admin_role)
     db.session.commit()
 
