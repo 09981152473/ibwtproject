@@ -36,7 +36,7 @@ DRK_PASSWORD = "YOUR_PASSWORD"
 DRK_ACCOUNT = 'YOUR_ACCOUNT'
 
 # Namecoin
-NMC_CONF_FILE='/home/bitcoinuser/.namecoin/namecoin.conf'
+NMC_CONF_FILE='PATH/TO/CONF'
 NMC_NETWORK = 'testnet' # only in test
 NMC_URL = 'URL:PORT'
 NMC_USERNAME = 'YOUR_USERNAME'
@@ -44,7 +44,7 @@ NMC_PASSWORD = "YOUR_PASSWORD"
 NMC_ACCOUNT = 'YOUR_ACCOUNT'
 
 # Novacoin
-NVC_CONF_FILE='/home/bitcoinuser/.novacoin/novacoin.conf'
+NVC_CONF_FILE='PATH/TO/CONF'
 NVC_NETWORK = 'testnet' # only in test
 NVC_URL = 'URL:PORT'
 NVC_USERNAME = 'YOUR_USERNAME'
@@ -53,7 +53,7 @@ NVC_ACCOUNT = 'YOUR_ACCOUNT'
 
 
 # PPC
-PPC_CONF_FILE='/home/bitcoinuser/.ppcoin/ppcoin.conf'
+PPC_CONF_FILE='PATH/TO/CONF'
 PPC_URL = 'URL:PORT'
 PPC_USERNAME = 'YOUR_USERNAME'
 PPC_PASSWORD = "YOUR_PASSWORD"
